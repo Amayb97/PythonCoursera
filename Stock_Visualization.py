@@ -43,7 +43,8 @@ def plot_stock(stock_data, revenue_data, stock):
     height=900,
     title=stock,
     xaxis_rangeslider_visible=True)
-    fig.show()
+    fig.show("png")
+   
 
 
 # ## Defining the `stock_vis` function.
