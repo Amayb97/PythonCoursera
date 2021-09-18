@@ -3,9 +3,6 @@
 
 # ## Importing the required packages
 
-# In[33]:
-
-
 get_ipython().system('pip install yfinance')
 get_ipython().system('pip install pandas')
 get_ipython().system('pip install requests')
@@ -22,11 +19,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 
-# ## Defining the `plot_stock` function.
+# Defining the `plot_stock` function.
 # Takes a dataframe with stock data, a dataframe with revenue data, and the name of the stock to plot historical stock prices as well as revenue. Index funds like SYPDER will display only the stock price.
-
-# In[40]:
-
 
 def plot_stock(stock_data, revenue_data, stock):
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=("Historical Share Price", "Historical Revenue"), vertical_spacing = .3)
@@ -47,11 +41,8 @@ def plot_stock(stock_data, revenue_data, stock):
    
 
 
-# ## Defining the `stock_vis` function.
+# Defining the `stock_vis` function.
 # Using webscaring to extract revenue data for the companies in the stock portfolio by accessing the MacroTrends website.
-
-# In[29]:
-
 
 def stock_vis (x,y):
     #Creating a ticker object for the stockname to extract the stock price history for the stock. 
@@ -84,11 +75,8 @@ def stock_vis (x,y):
     plot_stock(stock_data, stock_revenue, y)
 
 
-# ## Importing the Dataset
+# Importing the Dataset
 # Importing a two column dataframe, with the stock ticker name as well as the full name of the company. If you import your own stock portfolios, please make sure that it has the two required columns as the first two.
-
-# In[42]:
-
 
 data = pd.read_csv (r'https://raw.githubusercontent.com/Amayb97/PythonCoursera/main/Stocks.csv')  #Importing the csv
 df = pd.DataFrame(data) #converting the csv to a dataframe
@@ -96,10 +84,7 @@ df = df.sort_values(by = ['Stock'], ignore_index = True) #sorting the stocks in 
 df
 
 
-# ## Using a loop to apply the functions to the dataset
-
-# In[41]:
-
+# Using a loop to apply the functions to the dataset
 
 i = 0 # Initializing the index variable 
 # A while loop to assign the value of the stock name and company name to the respective variables
@@ -109,10 +94,6 @@ while (i<len(df)):
     company = df.iloc[i,1]
     stock_vis(stock,company)
     i=i+1
-
-
-# In[ ]:
-
-
-
-
+    
+    
+    
